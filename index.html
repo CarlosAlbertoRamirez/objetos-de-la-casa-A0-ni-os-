@@ -86,7 +86,8 @@ body{font-family:var(--font);background:radial-gradient(ellipse at 10% 10%,rgba(
 .desc-card.matched{border-color:rgba(34,197,94,.5);background:rgba(34,197,94,.07);cursor:default;transform:none;opacity:.8}
 .desc-card.wrong{border-color:var(--bad);animation:shk .32s ease}
 .desc-num{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:900;color:var(--muted2);flex-shrink:0}
-.desc-text{font-size:.9rem;color:var(--muted);line-height:1.45;flex:1}
+.desc-text{font-size:.88rem;color:var(--text);line-height:1.45;flex:1}
+.desc-text .desc-es{display:block;font-size:.75rem;color:var(--muted2);margin-top:4px;font-style:italic}
 @keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 .actions{display:flex;justify-content:flex-end;margin-top:20px;gap:10px;align-items:center}
 .hint-count{font-size:.75rem;color:var(--muted2);font-weight:700}
@@ -185,67 +186,67 @@ const ROOMS = [
   {
     id:'cocina', name:'The Kitchen', color:'#f59e0b', bg:'rgba(245,158,11,.18)', icon:'🍳',
     items:[
-      {word:'sartén',        phonetic:'sar-TÉN',           desc:'Used to fry eggs, meat, or vegetables over direct heat.',         wiki:'Frying_pan'},
-      {word:'olla',          phonetic:'O-ya',               desc:'A deep pot used to boil water, soups, and stews.',                wiki:'Cooking_pot'},
-      {word:'cuchillo',      phonetic:'cu-CHI-yo',          desc:'A kitchen tool with a sharp blade used to cut food.',             wiki:'Kitchen_knife'},
-      {word:'refrigerador',  phonetic:'re-fri-he-ra-DOR',   desc:'An appliance that keeps food cold and fresh.',                    wiki:'Refrigerator'},
-      {word:'licuadora',     phonetic:'li-cua-DO-ra',       desc:'An electric device that blends and liquefies ingredients.',       wiki:'Blender'},
-      {word:'tostador',      phonetic:'tos-ta-DOR',         desc:'An electric appliance that heats and browns bread.',              wiki:'Toaster'},
+      {word:'sartén',        phonetic:'sar-TÉN',           desc:'Used to fry eggs, meat, or vegetables over direct heat.',         descEs:'Se usa para freír huevos, carne o verduras.',       wiki:'Frying_pan'},
+      {word:'olla',          phonetic:'O-ya',               desc:'A deep pot used to boil water, soups, and stews.',                descEs:'Olla profunda para hervir agua, sopas y guisados.',  wiki:'Cooking_pot'},
+      {word:'cuchillo',      phonetic:'cu-CHI-yo',          desc:'A kitchen tool with a sharp blade used to cut food.',             descEs:'Herramienta con filo para cortar alimentos.',        wiki:'Kitchen_knife'},
+      {word:'refrigerador',  phonetic:'re-fri-he-ra-DOR',   desc:'An appliance that keeps food cold and fresh.',                    descEs:'Aparato que mantiene los alimentos fríos.',          wiki:'Refrigerator'},
+      {word:'licuadora',     phonetic:'li-cua-DO-ra',       desc:'An electric device that blends and liquefies ingredients.',       descEs:'Aparato eléctrico que muele y mezcla ingredientes.', wiki:'Blender'},
+      {word:'tostador',      phonetic:'tos-ta-DOR',         desc:'An electric appliance that heats and browns bread.',              descEs:'Aparato eléctrico que dora el pan.',                 wiki:'Toaster'},
     ]
   },
   {
     id:'bano', name:'The Bathroom', color:'#22d3ee', bg:'rgba(34,211,238,.18)', icon:'🚿',
     items:[
-      {word:'regadera',           phonetic:'re-ga-DE-ra',   desc:'A shower device that sprays water to bathe under.',               wiki:'Shower'},
-      {word:'cepillo de dientes', phonetic:'ce-PI-yo',      desc:'A bristled tool used to clean and protect your teeth.',           wiki:'Toothbrush'},
-      {word:'jabón',              phonetic:'ha-BÓN',        desc:'A cleansing product used with water to wash the skin.',           wiki:'Soap'},
-      {word:'toalla',             phonetic:'to-A-ya',       desc:'An absorbent cloth used to dry the body after bathing.',          wiki:'Towel'},
-      {word:'espejo',             phonetic:'es-PE-ho',      desc:'A reflective surface where you can see your own image.',          wiki:'Mirror'},
-      {word:'inodoro',            phonetic:'i-no-DO-ro',    desc:'A plumbing fixture connected to water for body waste.',           wiki:'Flush_toilet'},
+      {word:'regadera',           phonetic:'re-ga-DE-ra',   desc:'A shower device that sprays water to bathe under.',               descEs:'Dispositivo del que sale agua para bañarse.',        wiki:'Shower'},
+      {word:'cepillo de dientes', phonetic:'ce-PI-yo',      desc:'A bristled tool used to clean and protect your teeth.',           descEs:'Utensilio con cerdas para limpiar los dientes.',     wiki:'Toothbrush'},
+      {word:'jabón',              phonetic:'ha-BÓN',        desc:'A cleansing product used with water to wash the skin.',           descEs:'Producto que se usa con agua para limpiar la piel.', wiki:'Soap'},
+      {word:'toalla',             phonetic:'to-A-ya',       desc:'An absorbent cloth used to dry the body after bathing.',          descEs:'Tela absorbente para secarse después de bañarse.',   wiki:'Towel'},
+      {word:'espejo',             phonetic:'es-PE-ho',      desc:'A reflective surface where you can see your own image.',          descEs:'Superficie reflectante donde ves tu imagen.',        wiki:'Mirror'},
+      {word:'inodoro',            phonetic:'i-no-DO-ro',    desc:'A plumbing fixture connected to water for body waste.',           descEs:'Mueble sanitario para los desechos del cuerpo.',     wiki:'Flush_toilet'},
     ]
   },
   {
     id:'recamara', name:'The Bedroom', color:'#a78bfa', bg:'rgba(167,139,250,.18)', icon:'🛏️',
     items:[
-      {word:'cama',          phonetic:'CA-ma',              desc:'The main piece of furniture in a room used for sleeping.',        wiki:'Bed'},
-      {word:'almohada',      phonetic:'al-mo-A-da',         desc:'A soft cushion placed under your head while sleeping.',           wiki:'Pillow'},
-      {word:'cobija',        phonetic:'co-BI-ha',           desc:'A thick fabric cover that keeps your body warm in bed.',          wiki:'Blanket'},
-      {word:'clóset',        phonetic:'CLO-set',            desc:'An enclosed space or cabinet where clothes and shoes are stored.',wiki:'Closet'},
-      {word:'lámpara',       phonetic:'LÁM-pa-ra',          desc:'A light device that illuminates the room or bedside table.',      wiki:'Table_lamp'},
-      {word:'ventilador',    phonetic:'ven-ti-la-DOR',      desc:'An electric device with blades that circulates air to cool you.', wiki:'Electric_fan'},
+      {word:'cama',          phonetic:'CA-ma',              desc:'The main piece of furniture in a room used for sleeping.',        descEs:'Mueble principal del cuarto donde dormimos.',        wiki:'Bed'},
+      {word:'almohada',      phonetic:'al-mo-A-da',         desc:'A soft cushion placed under your head while sleeping.',           descEs:'Cojín suave que ponemos bajo la cabeza al dormir.',  wiki:'Pillow'},
+      {word:'cobija',        phonetic:'co-BI-ha',           desc:'A thick fabric cover that keeps your body warm in bed.',          descEs:'Tela gruesa que cubre el cuerpo para darnos calor.', wiki:'Blanket'},
+      {word:'clóset',        phonetic:'CLO-set',            desc:'An enclosed space where clothes and shoes are stored.',           descEs:'Espacio cerrado donde guardamos ropa y zapatos.',    wiki:'Closet'},
+      {word:'lámpara',       phonetic:'LÁM-pa-ra',          desc:'A light device that illuminates the room or bedside table.',      descEs:'Aparato de luz que ilumina el cuarto.',              wiki:'Table_lamp'},
+      {word:'ventilador',    phonetic:'ven-ti-la-DOR',      desc:'An electric device with blades that circulates air to cool you.', descEs:'Aparato con aspas que mueve el aire para dar fresco.',wiki:'Electric_fan'},
     ]
   },
   {
     id:'sala', name:'The Living Room', color:'#f472b6', bg:'rgba(244,114,182,.18)', icon:'🛋️',
     items:[
-      {word:'sofá',          phonetic:'so-FÁ',              desc:'A long upholstered piece of furniture for several people to sit.',wiki:'Sofa_bed'},
-      {word:'televisión',    phonetic:'te-le-vi-SIÓN',      desc:'An electronic screen used to watch movies, series, and news.',    wiki:'Television_set'},
-      {word:'librero',       phonetic:'li-BRE-ro',          desc:'A piece of furniture with shelves used to organize books.',       wiki:'Bookcase'},
-      {word:'alfombra',      phonetic:'al-FOM-bra',         desc:'A large textile that covers the floor in a room.',                wiki:'Carpet'},
-      {word:'planta',        phonetic:'PLAN-ta',            desc:'A decorative living plant that purifies the air indoors.',        wiki:'Houseplant'},
-      {word:'cuadro',        phonetic:'CUA-dro',            desc:'A framed image or painting hung on the wall as decoration.',      wiki:'Picture_frame'},
+      {word:'sofá',          phonetic:'so-FÁ',              desc:'A long upholstered piece of furniture for several people to sit.',descEs:'Mueble largo y acolchado para varias personas.',     wiki:'Sofa_bed'},
+      {word:'televisión',    phonetic:'te-le-vi-SIÓN',      desc:'An electronic screen used to watch movies, series, and news.',    descEs:'Pantalla electrónica para ver películas y series.',  wiki:'Television_set'},
+      {word:'librero',       phonetic:'li-BRE-ro',          desc:'A piece of furniture with shelves used to organize books.',       descEs:'Mueble con repisas para guardar libros.',            wiki:'Bookcase'},
+      {word:'alfombra',      phonetic:'al-FOM-bra',         desc:'A large textile that covers the floor in a room.',                descEs:'Tapete grande de tela que cubre el piso.',           wiki:'Carpet'},
+      {word:'planta',        phonetic:'PLAN-ta',            desc:'A decorative living plant that purifies the air indoors.',        descEs:'Planta decorativa que purifica el aire del hogar.',  wiki:'Houseplant'},
+      {word:'cuadro',        phonetic:'CUA-dro',            desc:'A framed image or painting hung on the wall as decoration.',      descEs:'Imagen enmarcada que se cuelga en la pared.',        wiki:'Picture_frame'},
     ]
   },
   {
     id:'comedor', name:'The Dining Room', color:'#34d399', bg:'rgba(52,211,153,.18)', icon:'🍽️',
     items:[
-      {word:'mesa',          phonetic:'ME-sa',              desc:'A flat elevated piece of furniture where we sit down to eat.',    wiki:'Table_(furniture)'},
-      {word:'silla',         phonetic:'SI-ya',              desc:'An individual seat with a backrest used at the table.',           wiki:'Chair'},
-      {word:'plato',         phonetic:'PLA-to',             desc:'A round flat dish used to serve and eat food.',                   wiki:'Plate_(dishware)'},
-      {word:'vaso',          phonetic:'BA-so',              desc:'A cylindrical glass container used to drink water or juice.',     wiki:'Drinking_glass'},
-      {word:'tenedor',       phonetic:'te-ne-DOR',          desc:'A utensil with metal prongs used to carry food to the mouth.',    wiki:'Fork'},
-      {word:'mantel',        phonetic:'man-TEL',            desc:'A cloth that covers the table to protect and decorate it.',       wiki:'Tablecloth'},
+      {word:'mesa',          phonetic:'ME-sa',              desc:'A flat elevated piece of furniture where we sit down to eat.',    descEs:'Mueble plano elevado alrededor del que comemos.',    wiki:'Table_(furniture)'},
+      {word:'silla',         phonetic:'SI-ya',              desc:'An individual seat with a backrest used at the table.',           descEs:'Mueble individual con respaldo para sentarse.',      wiki:'Chair'},
+      {word:'plato',         phonetic:'PLA-to',             desc:'A round flat dish used to serve and eat food.',                   descEs:'Recipiente redondo y plano para servir comida.',     wiki:'Plate_(dishware)'},
+      {word:'vaso',          phonetic:'BA-so',              desc:'A cylindrical glass container used to drink water or juice.',     descEs:'Recipiente de vidrio para beber agua o jugo.',       wiki:'Drinking_glass'},
+      {word:'tenedor',       phonetic:'te-ne-DOR',          desc:'A utensil with metal prongs used to carry food to the mouth.',    descEs:'Cubierto con puntas para llevar comida a la boca.',  wiki:'Fork'},
+      {word:'mantel',        phonetic:'man-TEL',            desc:'A cloth that covers the table to protect and decorate it.',       descEs:'Tela que cubre la mesa para protegerla y decorarla.',wiki:'Tablecloth'},
     ]
   },
   {
     id:'garage', name:'The Garage', color:'#94a3b8', bg:'rgba(148,163,184,.18)', icon:'🔧',
     items:[
-      {word:'martillo',      phonetic:'mar-TI-yo',          desc:'A tool with a heavy metal head used to drive nails into surfaces.',wiki:'Hammer'},
-      {word:'desarmador',    phonetic:'des-ar-ma-DOR',      desc:'A long thin tool used to tighten or loosen screws.',              wiki:'Screwdriver'},
-      {word:'cubeta',        phonetic:'cu-BE-ta',           desc:'A round container with a handle used to carry water or paint.',   wiki:'Bucket'},
-      {word:'escalera',      phonetic:'es-ca-LE-ra',        desc:'A structure with steps used to climb up and reach high places.',  wiki:'Ladder'},
-      {word:'cinta métrica', phonetic:'CIN-ta',             desc:'A flexible graduated tape used to measure lengths and distances.',wiki:'Tape_measure'},
-      {word:'llave inglesa', phonetic:'YA-ve',              desc:'An adjustable tool used to tighten or loosen nuts and bolts.',    wiki:'Adjustable_spanner'},
+      {word:'martillo',      phonetic:'mar-TI-yo',          desc:'A tool with a heavy metal head used to drive nails into surfaces.',descEs:'Herramienta con cabeza metálica para clavar clavos.',wiki:'Hammer'},
+      {word:'desarmador',    phonetic:'des-ar-ma-DOR',      desc:'A long thin tool used to tighten or loosen screws.',              descEs:'Herramienta larga y delgada para apretar tornillos.', wiki:'Screwdriver'},
+      {word:'cubeta',        phonetic:'cu-BE-ta',           desc:'A round container with a handle used to carry water or paint.',   descEs:'Recipiente redondo con asa para cargar agua.',       wiki:'Bucket'},
+      {word:'escalera',      phonetic:'es-ca-LE-ra',        desc:'A structure with steps used to climb up and reach high places.',  descEs:'Estructura con peldaños para alcanzar lugares altos.',wiki:'Ladder'},
+      {word:'cinta métrica', phonetic:'CIN-ta',             desc:'A flexible graduated tape used to measure lengths and distances.',descEs:'Cinta flexible para medir longitudes y distancias.',  wiki:'Tape_measure'},
+      {word:'llave inglesa', phonetic:'YA-ve',              desc:'An adjustable tool used to tighten or loosen nuts and bolts.',    descEs:'Herramienta ajustable para apretar tuercas.',        wiki:'Adjustable_spanner'},
     ]
   },
 ];
@@ -472,7 +473,10 @@ function renderDescCard(room, i, pos){
   let cls='desc-card'+(isMatched?' matched':isSel?' selected':'');
   return `<div class="${cls}" id="R${i}" onclick="clickRight(${i})">
     <div class="desc-num">${pos+1}</div>
-    <div class="desc-text">${item.desc}</div>
+    <div class="desc-text">
+      ${item.desc}
+      <span class="desc-es">(${item.descEs})</span>
+    </div>
   </div>`;
 }
 
